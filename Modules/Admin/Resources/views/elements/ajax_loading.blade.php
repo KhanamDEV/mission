@@ -1,0 +1,1 @@
+<div id="ajax-loading" style="display:none;position: fixed;top: 0;left: 0;bottom:0; right:0;width: 100%;height: 100%;background: url('{{asset('images/loading.svg')}}') rgba(0, 0, 0, .6);background-repeat: no-repeat;background-position: center;background-size: 125px auto;z-index: 9999;justify-content: center;align-items: center;"></div>

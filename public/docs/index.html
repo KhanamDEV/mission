@@ -1,0 +1,5190 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>Feedback</h1>
+<!-- START_7c633ef1d307c8e9e16af7afe6a74b5b -->
+<h2>api/v2/feedback</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/feedback" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"team_id":"reiciendis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/feedback"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "team_id": "reiciendis"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": [
+        {
+            "id": 1,
+            "title": "Mission 1",
+            "detail": "Detail mission",
+            "percent": 0.5,
+            "thumbnail": {
+                "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                "height": 1536,
+                "width": 2048,
+                "ratio": 0.75
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/feedback</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>team_id</code></td>
+<td>numeric</td>
+<td>optional</td>
+<td>nullable The team id of feedback.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_7c633ef1d307c8e9e16af7afe6a74b5b -->
+<!-- START_07895e75a66cca1763271035b4dcca46 -->
+<h2>api/v2/feedback/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/feedback/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"at"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/feedback/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "at"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "feedback": {
+            "title": "Mission 1",
+            "thumbnail": {
+                "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                "height": 1536,
+                "width": 2048,
+                "ratio": 0.75
+            },
+            "hint_title": "Hint title",
+            "hint_detail": "Hint detail"
+        },
+        "answers": [
+            {
+                "title": "What is your favorite fruit?",
+                "list_answer": [
+                    {
+                        "user": "田中圭\/タナカケイ",
+                        "type": 1,
+                        "answer": [
+                            "Ex1",
+                            "Ex2"
+                        ]
+                    },
+                    {
+                        "user": "田中圭\/タナカケイ111",
+                        "type": 3,
+                        "answer": "abcd"
+                    }
+                ]
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/feedback/detail</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id of feedback</td>
+</tr>
+</tbody>
+</table>
+<!-- END_07895e75a66cca1763271035b4dcca46 -->
+<!-- START_b6122cc9a0e0052c2205dbd7c1c86c24 -->
+<h2>api/v2/feedback</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/feedback" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"team_id":"dicta"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/feedback"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "team_id": "dicta"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": [
+        {
+            "id": 1,
+            "title": "Mission 1",
+            "detail": "Detail mission",
+            "percent": 0.5,
+            "thumbnail": {
+                "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                "height": 1536,
+                "width": 2048,
+                "ratio": 0.75
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/feedback</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>team_id</code></td>
+<td>numeric</td>
+<td>optional</td>
+<td>nullable The team id of feedback.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b6122cc9a0e0052c2205dbd7c1c86c24 -->
+<!-- START_9125bca1cc58c75df6e942db0ee87b4c -->
+<h2>api/v2/feedback/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/feedback/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"veniam"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/feedback/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "veniam"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "feedback": {
+            "title": "Mission 1",
+            "thumbnail": {
+                "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                "height": 1536,
+                "width": 2048,
+                "ratio": 0.75
+            },
+            "hint_title": "Hint title",
+            "hint_detail": "Hint detail"
+        },
+        "answers": [
+            {
+                "title": "What is your favorite fruit?",
+                "list_answer": [
+                    {
+                        "user": "田中圭\/タナカケイ",
+                        "type": 1,
+                        "answer": [
+                            "Ex1",
+                            "Ex2"
+                        ]
+                    },
+                    {
+                        "user": "田中圭\/タナカケイ111",
+                        "type": 3,
+                        "answer": "abcd"
+                    }
+                ]
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/feedback/detail</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id of feedback</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9125bca1cc58c75df6e942db0ee87b4c -->
+<h1>ForgetPassword</h1>
+<!-- START_751caced5a339485c42dbfc6c25f1461 -->
+<h2>api/v2/forget-password</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v2/forget-password" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"nisi"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/forget-password"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "nisi"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 401,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v2/forget-password</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of brand account</td>
+</tr>
+</tbody>
+</table>
+<!-- END_751caced5a339485c42dbfc6c25f1461 -->
+<!-- START_8c06e9cf423b374f408791fd37b3acbf -->
+<h2>api/v2/forget-password/confirm</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v2/forget-password/confirm" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"dicta","token":"accusantium"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/forget-password/confirm"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "dicta",
+    "token": "accusantium"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v2/forget-password/confirm</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of brand account</td>
+</tr>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>required</td>
+<td>The token send to mail</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8c06e9cf423b374f408791fd37b3acbf -->
+<!-- START_10880b4b7c04fbe4df20190e34c91b38 -->
+<h2>api/v2/forget-password/change</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v2/forget-password/change" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"placeat","password":"accusantium","token":"omnis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/forget-password/change"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "placeat",
+    "password": "accusantium",
+    "token": "omnis"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v2/forget-password/change</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of brand account</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>The new password of brand account</td>
+</tr>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>required</td>
+<td>The token send to mail</td>
+</tr>
+</tbody>
+</table>
+<!-- END_10880b4b7c04fbe4df20190e34c91b38 -->
+<!-- START_33cf01c53ceed84f1e23700a1952d16f -->
+<h2>api/v2/forget-password</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v1/forget-password" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"totam"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/forget-password"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "totam"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 401,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/forget-password</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of brand account</td>
+</tr>
+</tbody>
+</table>
+<!-- END_33cf01c53ceed84f1e23700a1952d16f -->
+<!-- START_2fa4ceb7749a0b42c06f303c1a25e748 -->
+<h2>api/v2/forget-password/confirm</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v1/forget-password/confirm" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"neque","token":"non"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/forget-password/confirm"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "neque",
+    "token": "non"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/forget-password/confirm</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of brand account</td>
+</tr>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>required</td>
+<td>The token send to mail</td>
+</tr>
+</tbody>
+</table>
+<!-- END_2fa4ceb7749a0b42c06f303c1a25e748 -->
+<!-- START_8d92031b856746e6b565358dfbc15d67 -->
+<h2>api/v2/forget-password/change</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v1/forget-password/change" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"sint","password":"reprehenderit","token":"beatae"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/forget-password/change"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "sint",
+    "password": "reprehenderit",
+    "token": "beatae"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/forget-password/change</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of brand account</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>The new password of brand account</td>
+</tr>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>required</td>
+<td>The token send to mail</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8d92031b856746e6b565358dfbc15d67 -->
+<h1>Mission</h1>
+<!-- START_0cc1cb2336518101b69d86075a53749a -->
+<h2>api/v2/mission</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/mission" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/mission"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "answered": [
+            {
+                "id": 1,
+                "name": "Mission 1",
+                "team_name": "Team 1",
+                "delivery_order_date": "30-09-2021",
+                "thumbnail": {
+                    "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                    "height": 1356,
+                    "width": 2048,
+                    "ratio": 0.75
+                },
+                "is_target": true,
+                "user_target": {
+                    "name": "abc\/xyz",
+                    "id": 1
+                }
+            }
+        ],
+        "not_answered": [
+            {
+                "id": 2,
+                "name": "Mission 2",
+                "team_name": "Team 2",
+                "delivery_order_date": "2021-09-30",
+                "thumbnail": {
+                    "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                    "height": 1356,
+                    "width": 2048,
+                    "ratio": 0.75
+                },
+                "is_target": true,
+                "user_target": {
+                    "name": "abc\/xyz",
+                    "id": 1
+                }
+            },
+            {
+                "id": 2,
+                "name": "Mission 2",
+                "team_name": "Team 2",
+                "delivery_order_date": "2021-09-30",
+                "thumbnail": {
+                    "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                    "height": 1356,
+                    "width": 2048,
+                    "ratio": 0.75
+                },
+                "is_target": false,
+                "user_target": {}
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/mission</code></p>
+<!-- END_0cc1cb2336518101b69d86075a53749a -->
+<!-- START_2d398490f2c0e1e01995876d74e5519a -->
+<h2>api/v2/mission/question</h2>
+<p>type: 1 =&gt; checkbox, 2 =&gt; select, 3 =&gt; text, 4 =&gt; image</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/mission/question" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"voluptatem"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/mission/question"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "voluptatem"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "mission": {
+            "id": 1,
+            "name": "Mission 1",
+            "is_target": "true",
+            "user_target": {
+                "id": 1,
+                "name": "abc\/xyz"
+            },
+            "time_required": "355 days"
+        },
+        "questions": [
+            {
+                "id": 1,
+                "title": "What your name ?",
+                "type": 1,
+                "choice": [
+                    "Nam",
+                    "Cuong"
+                ]
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/mission/question</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The mission id contain question</td>
+</tr>
+</tbody>
+</table>
+<!-- END_2d398490f2c0e1e01995876d74e5519a -->
+<!-- START_c332d1c6f83c5caabbd1fd0522e365fc -->
+<h2>api/v2/mission/question</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v2/mission/question" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"answers":"ut","mission_id":"nam","is_anonymous":false}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/mission/question"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "answers": "ut",
+    "mission_id": "nam",
+    "is_anonymous": false
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v2/mission/question</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>answers</code></td>
+<td>json</td>
+<td>required</td>
+<td>The json array contain answer ( [{&quot;id&quot;:1,&quot;title&quot;:&quot;What is your favorite fruit?&quot;,&quot;type&quot;: 1,&quot;choice&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;],&quot;answer&quot;:[&quot;A&quot;,&quot;B&quot;]}] )</td>
+</tr>
+<tr>
+<td><code>mission_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id mission of question</td>
+</tr>
+<tr>
+<td><code>is_anonymous</code></td>
+<td>boolean</td>
+<td>required</td>
+<td>The type person answer</td>
+</tr>
+</tbody>
+</table>
+<!-- END_c332d1c6f83c5caabbd1fd0522e365fc -->
+<!-- START_27a6d859370099be48c05ac1e514ebaf -->
+<h2>api/v2/mission/question-answered</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/mission/question-answered" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"mission_id":"alias"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/mission/question-answered"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "mission_id": "alias"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "mission": {
+            "id": 1,
+            "name": "Mission 1",
+            "delivery_order_date": "2021-06-28",
+            "time_required": "355 days"
+        },
+        "questions": [
+            {
+                "id": 1,
+                "title": "What your name ?",
+                "type": "1",
+                "choice": [
+                    "Nam",
+                    "Cuong"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "How old are u ?",
+                "type": "3",
+                "choice": "21"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/mission/question-answered</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mission_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The mission base id contain question</td>
+</tr>
+</tbody>
+</table>
+<!-- END_27a6d859370099be48c05ac1e514ebaf -->
+<!-- START_16129ab48e9ab16aeb010ef8605b0759 -->
+<h2>api/v2/mission/edit-question-answered</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v2/mission/edit-question-answered" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"answers":"non","mission_id":"quasi"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/mission/edit-question-answered"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "answers": "non",
+    "mission_id": "quasi"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v2/mission/edit-question-answered</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>answers</code></td>
+<td>json</td>
+<td>required</td>
+<td>The json array contain answer ( [{&quot;id&quot;:1,&quot;question_id&quot;: 1,&quot;title&quot;:&quot;What is your favorite fruit?&quot;,&quot;type&quot;: 1,&quot;choice&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;],&quot;answer&quot;:[&quot;A&quot;,&quot;B&quot;]}] )</td>
+</tr>
+<tr>
+<td><code>mission_id</code></td>
+<td>The</td>
+<td>optional</td>
+<td>id of mission contain answers</td>
+</tr>
+</tbody>
+</table>
+<!-- END_16129ab48e9ab16aeb010ef8605b0759 -->
+<!-- START_c20c612669bb7d643538ad3107f4fff9 -->
+<h2>api/v2/mission</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/mission" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/mission"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "answered": [
+            {
+                "id": 1,
+                "name": "Mission 1",
+                "team_name": "Team 1",
+                "delivery_order_date": "30-09-2021",
+                "thumbnail": {
+                    "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                    "height": 1356,
+                    "width": 2048,
+                    "ratio": 0.75
+                },
+                "is_target": true,
+                "user_target": {
+                    "name": "abc\/xyz",
+                    "id": 1
+                }
+            }
+        ],
+        "not_answered": [
+            {
+                "id": 2,
+                "name": "Mission 2",
+                "team_name": "Team 2",
+                "delivery_order_date": "2021-09-30",
+                "thumbnail": {
+                    "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                    "height": 1356,
+                    "width": 2048,
+                    "ratio": 0.75
+                },
+                "is_target": true,
+                "user_target": {
+                    "name": "abc\/xyz",
+                    "id": 1
+                }
+            },
+            {
+                "id": 2,
+                "name": "Mission 2",
+                "team_name": "Team 2",
+                "delivery_order_date": "2021-09-30",
+                "thumbnail": {
+                    "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                    "height": 1356,
+                    "width": 2048,
+                    "ratio": 0.75
+                },
+                "is_target": false,
+                "user_target": {}
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/mission</code></p>
+<!-- END_c20c612669bb7d643538ad3107f4fff9 -->
+<!-- START_cd023ce0dbde02e12a6207e8d5db4ad3 -->
+<h2>api/v2/mission/question</h2>
+<p>type: 1 =&gt; checkbox, 2 =&gt; select, 3 =&gt; text, 4 =&gt; image</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/mission/question" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"dolorum"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/mission/question"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "dolorum"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "mission": {
+            "id": 1,
+            "name": "Mission 1",
+            "is_target": "true",
+            "user_target": {
+                "id": 1,
+                "name": "abc\/xyz"
+            },
+            "time_required": "355 days"
+        },
+        "questions": [
+            {
+                "id": 1,
+                "title": "What your name ?",
+                "type": 1,
+                "choice": [
+                    "Nam",
+                    "Cuong"
+                ]
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/mission/question</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The mission id contain question</td>
+</tr>
+</tbody>
+</table>
+<!-- END_cd023ce0dbde02e12a6207e8d5db4ad3 -->
+<!-- START_ca17ae720f6a0ef727174ad1099ebcc9 -->
+<h2>api/v2/mission/question</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v1/mission/question" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"answers":"eos","mission_id":"libero","is_anonymous":true}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/mission/question"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "answers": "eos",
+    "mission_id": "libero",
+    "is_anonymous": true
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/mission/question</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>answers</code></td>
+<td>json</td>
+<td>required</td>
+<td>The json array contain answer ( [{&quot;id&quot;:1,&quot;title&quot;:&quot;What is your favorite fruit?&quot;,&quot;type&quot;: 1,&quot;choice&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;],&quot;answer&quot;:[&quot;A&quot;,&quot;B&quot;]}] )</td>
+</tr>
+<tr>
+<td><code>mission_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id mission of question</td>
+</tr>
+<tr>
+<td><code>is_anonymous</code></td>
+<td>boolean</td>
+<td>required</td>
+<td>The type person answer</td>
+</tr>
+</tbody>
+</table>
+<!-- END_ca17ae720f6a0ef727174ad1099ebcc9 -->
+<!-- START_b1269ec9fe7da0d1ae1647551d47d2f4 -->
+<h2>api/v2/mission/question-answered</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/mission/question-answered" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"mission_id":"neque"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/mission/question-answered"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "mission_id": "neque"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "mission": {
+            "id": 1,
+            "name": "Mission 1",
+            "delivery_order_date": "2021-06-28",
+            "time_required": "355 days"
+        },
+        "questions": [
+            {
+                "id": 1,
+                "title": "What your name ?",
+                "type": "1",
+                "choice": [
+                    "Nam",
+                    "Cuong"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "How old are u ?",
+                "type": "3",
+                "choice": "21"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/mission/question-answered</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mission_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The mission base id contain question</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b1269ec9fe7da0d1ae1647551d47d2f4 -->
+<!-- START_ab5af79bfed1f7b860cfa61d91ad1aef -->
+<h2>api/v2/mission/edit-question-answered</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v1/mission/edit-question-answered" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"answers":"ipsum","mission_id":"voluptatem"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/mission/edit-question-answered"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "answers": "ipsum",
+    "mission_id": "voluptatem"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/mission/edit-question-answered</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>answers</code></td>
+<td>json</td>
+<td>required</td>
+<td>The json array contain answer ( [{&quot;id&quot;:1,&quot;question_id&quot;: 1,&quot;title&quot;:&quot;What is your favorite fruit?&quot;,&quot;type&quot;: 1,&quot;choice&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;],&quot;answer&quot;:[&quot;A&quot;,&quot;B&quot;]}] )</td>
+</tr>
+<tr>
+<td><code>mission_id</code></td>
+<td>The</td>
+<td>optional</td>
+<td>id of mission contain answers</td>
+</tr>
+</tbody>
+</table>
+<!-- END_ab5af79bfed1f7b860cfa61d91ad1aef -->
+<h1>Notification</h1>
+<!-- START_bd87b9440859e63ed41f265e1f508fe8 -->
+<h2>api/v2/notification</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/notification" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"type":"qui"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/notification"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "type": "qui"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "brand": [
+            {
+                "id": 1,
+                "title": "Notify 1",
+                "is_seen": "false",
+                "created_at": "2021\/11\/23"
+            }
+        ],
+        "system": [
+            {
+                "id": 2,
+                "title": "Notify 2",
+                "is_seen": "true",
+                "created_at": "2021\/09\/30"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/notification</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>optional</td>
+<td>not required Ex: system, brand</td>
+</tr>
+</tbody>
+</table>
+<!-- END_bd87b9440859e63ed41f265e1f508fe8 -->
+<!-- START_667bf0189c8c74fc8bb13a0bf13bd7e4 -->
+<h2>api/v2/notification/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/notification/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"ut","type":"sit"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/notification/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "ut",
+    "type": "sit"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "id": 1,
+        "title": "Title",
+        "description": "Description",
+        "url": "url"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/notification/detail</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>optional</td>
+<td>The id of notification</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Type of notification Ex: brand, system</td>
+</tr>
+</tbody>
+</table>
+<!-- END_667bf0189c8c74fc8bb13a0bf13bd7e4 -->
+<h1>Program</h1>
+<!-- START_618b6452cb0ab08b62199937374818b9 -->
+<h2>api/v2/program</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/program" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/program"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": [
+        {
+            "id": 1,
+            "name": "Program 1",
+            "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure molestiae voluptate at ab quae, maiores assumenda sapiente accusamus repellendus ea sint. Corporis laborum deleniti dolor doloribus a molestias esse nostrum?",
+            "thumbnail": {
+                "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                "height": 1536,
+                "width": 2048,
+                "ratio": 0.75
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/program</code></p>
+<!-- END_618b6452cb0ab08b62199937374818b9 -->
+<!-- START_ea3c194b1f147aecda8e66dd333fae18 -->
+<h2>api/v2/program/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/program/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"vel"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/program/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "vel"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "id": 1,
+        "name": "Program 1",
+        "detail": "Detail program 1",
+        "thumbnail": {
+            "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+            "height": 1536,
+            "width": 2048,
+            "ratio": 0.75
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/program/detail</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id of program</td>
+</tr>
+</tbody>
+</table>
+<!-- END_ea3c194b1f147aecda8e66dd333fae18 -->
+<!-- START_1d02212382e43da692347921c7e96d1b -->
+<h2>api/v2/program</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/program" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/program"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": [
+        {
+            "id": 1,
+            "name": "Program 1",
+            "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure molestiae voluptate at ab quae, maiores assumenda sapiente accusamus repellendus ea sint. Corporis laborum deleniti dolor doloribus a molestias esse nostrum?",
+            "thumbnail": {
+                "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                "height": 1536,
+                "width": 2048,
+                "ratio": 0.75
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/program</code></p>
+<!-- END_1d02212382e43da692347921c7e96d1b -->
+<!-- START_786763605597493f274ff59454cc9217 -->
+<h2>api/v2/program/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/program/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"vel"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/program/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "vel"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "id": 1,
+        "name": "Program 1",
+        "detail": "Detail program 1",
+        "thumbnail": {
+            "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+            "height": 1536,
+            "width": 2048,
+            "ratio": 0.75
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/program/detail</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id of program</td>
+</tr>
+</tbody>
+</table>
+<!-- END_786763605597493f274ff59454cc9217 -->
+<h1>SignIn</h1>
+<!-- START_4226b34141260b47a8d49ec906d48e6b -->
+<h2>api/v2/sign-in</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v2/sign-in" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"doloribus","password":"reprehenderit"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/sign-in"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "doloribus",
+    "password": "reprehenderit"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "id": 1,
+        "email": "khanam@techasia.biz",
+        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvc2lnbi1pbiIsImlhdCI6MTYyMTU2OTA2NiwiZXhwIjoxNjIxNTcyNjY2LCJuYmYiOjE2MjE1NjkwNjYsImp0aSI6IjEyZEVkdGdFTnUweHZnd24iLCJzdWIiOjEsInBydiI6IjIzOWNmMmI3ZDU4MjI2ZTgyMWMxMjQxMDAyMzBkZWU5ZmE4ZWQ2NzkifQ.b0R2TRZxGyBq9JUMCjgt-fjFieNEd5Ywo1jD9u_WPZA"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 401,
+        "message": "メールアドレスとパスワードが不一致"
+    },
+    "response": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v2/sign-in</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of brand account</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>The password of brand account</td>
+</tr>
+</tbody>
+</table>
+<!-- END_4226b34141260b47a8d49ec906d48e6b -->
+<!-- START_5236fef7db715959ef31d7f163ae1661 -->
+<h2>api/v2/sign-in</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v1/sign-in" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"ea","password":"doloremque"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/sign-in"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "ea",
+    "password": "doloremque"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "id": 1,
+        "email": "khanam@techasia.biz",
+        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC92MVwvc2lnbi1pbiIsImlhdCI6MTYyMTU2OTA2NiwiZXhwIjoxNjIxNTcyNjY2LCJuYmYiOjE2MjE1NjkwNjYsImp0aSI6IjEyZEVkdGdFTnUweHZnd24iLCJzdWIiOjEsInBydiI6IjIzOWNmMmI3ZDU4MjI2ZTgyMWMxMjQxMDAyMzBkZWU5ZmE4ZWQ2NzkifQ.b0R2TRZxGyBq9JUMCjgt-fjFieNEd5Ywo1jD9u_WPZA"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 401,
+        "message": "メールアドレスとパスワードが不一致"
+    },
+    "response": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/sign-in</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The email of brand account</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>The password of brand account</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5236fef7db715959ef31d7f163ae1661 -->
+<h1>SinglePage</h1>
+<!-- START_b80686484609ccb6b5d154e8bc5bbfd3 -->
+<h2>api/v2/single-page</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/single-page/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"page":"eligendi"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/single-page/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "page": "eligendi"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "response": "html content"
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "response": ""
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/single-page/{page}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>string</td>
+<td>optional</td>
+<td>The page get content Ex: api/v2/single-page/company, api/v2/single-page/term_privacy</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b80686484609ccb6b5d154e8bc5bbfd3 -->
+<!-- START_bc484543c614bc2e02cadcf0a3705b87 -->
+<h2>api/v2/single-page</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/single-page/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"page":"autem"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/single-page/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "page": "autem"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "response": "html content"
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "response": ""
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/single-page/{page}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>string</td>
+<td>optional</td>
+<td>The page get content Ex: api/v2/single-page/company, api/v2/single-page/term_privacy</td>
+</tr>
+</tbody>
+</table>
+<!-- END_bc484543c614bc2e02cadcf0a3705b87 -->
+<h1>Team</h1>
+<!-- START_dca154645326bd4fa9f86109221daf76 -->
+<h2>api/v2/team</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/team" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/team"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": [
+        {
+            "id": 1,
+            "name": "Team 1",
+            "detail": "Detail team 1",
+            "thumbnail": {
+                "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                "height": 1536,
+                "width": 2048,
+                "ratio": 0.75
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/team</code></p>
+<!-- END_dca154645326bd4fa9f86109221daf76 -->
+<!-- START_471db1927b3997bb190d9250749ffb35 -->
+<h2>api/v2/team/create</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v2/team/create" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"data":"dignissimos"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/team/create"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "data": "dignissimos"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v2/team/create</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td>json</td>
+<td>required</td>
+<td>The data create team ({&quot;team&quot;:{&quot;thumbnail_url&quot;:&quot;url image&quot;,&quot;name&quot;:&quot;Team 1&quot;},&quot;users&quot;:[{&quot;id&quot;:1,&quot;is_leader&quot;:true}],&quot;program_id&quot;:1})</td>
+</tr>
+</tbody>
+</table>
+<!-- END_471db1927b3997bb190d9250749ffb35 -->
+<!-- START_d5b783025be05b3392a9f04b34cc429f -->
+<h2>api/v2/team/edit</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v2/team/edit" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"team_id":"necessitatibus","name":"esse","thumbnail_url":"quis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/team/edit"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "team_id": "necessitatibus",
+    "name": "esse",
+    "thumbnail_url": "quis"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v2/team/edit</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>team_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The team id</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>The name of team</td>
+</tr>
+<tr>
+<td><code>thumbnail_url</code></td>
+<td>string</td>
+<td>optional</td>
+<td>The url image thumbnail team</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d5b783025be05b3392a9f04b34cc429f -->
+<!-- START_97b6173e9c1f5db853348326b54eee29 -->
+<h2>api/v2/team/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/team/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"aut"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/team/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "aut"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "id": 1,
+        "name": "Team 1",
+        "program_id": 1,
+        "program_name": "Program 1",
+        "thumbnail": {
+            "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+            "height": 1536,
+            "width": 2048,
+            "ratio": 0.75
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/team/detail</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id of team</td>
+</tr>
+</tbody>
+</table>
+<!-- END_97b6173e9c1f5db853348326b54eee29 -->
+<!-- START_aa8b52dddd0ef7226c23ff0ad8fb0671 -->
+<h2>api/v2/team/edit-program</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v2/team/edit-program" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"team_id":"doloribus","program_id":"inventore"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/team/edit-program"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "team_id": "doloribus",
+    "program_id": "inventore"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v2/team/edit-program</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>team_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The team id</td>
+</tr>
+<tr>
+<td><code>program_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The program id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_aa8b52dddd0ef7226c23ff0ad8fb0671 -->
+<!-- START_b5d2260c872ea389390d8e5bb73a5cb5 -->
+<h2>api/v2/team/edit-member</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v2/team/edit-member" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"team_id":"et","members":"inventore"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/team/edit-member"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "team_id": "et",
+    "members": "inventore"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v2/team/edit-member</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>team_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The team id</td>
+</tr>
+<tr>
+<td><code>members</code></td>
+<td>json</td>
+<td>required</td>
+<td>The data user ( [{&quot;id&quot;:1,&quot;is_leader&quot;:true}] )</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b5d2260c872ea389390d8e5bb73a5cb5 -->
+<!-- START_fd7d6285d10fadd10fd6e0d37b5a3295 -->
+<h2>api/v2/team/member</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/team/member" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"non","type":"quibusdam"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/team/member"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "non",
+    "type": "quibusdam"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": [
+        {
+            "id": 1,
+            "name": "KhaNam\/KhaNam",
+            "name_sei": "Kha",
+            "name_mei": "Nam",
+            "is_team_member": 1,
+            "is_leader": 1,
+            "position": "member",
+            "thumbnail": {
+                "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                "height": 1536,
+                "width": 2048,
+                "ratio": 0.75
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/team/member</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id of team</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>optional</td>
+<td>The type get member (get for show, get for edit) Ex:  edit</td>
+</tr>
+</tbody>
+</table>
+<!-- END_fd7d6285d10fadd10fd6e0d37b5a3295 -->
+<!-- START_d43eab55ba6c4af204ccb8f6ea9f629a -->
+<h2>api/v2/team/member/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/team/member/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"dignissimos"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/team/member/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "dignissimos"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "id": 1,
+        "name_sei": "Kha",
+        "name_mei": "Nam",
+        "name_sei_kana": "Kha",
+        "name_mei_kana": "Nam",
+        "name": "Kha Nam \/ Kha Nam",
+        "department": "department",
+        "detail": "This is detail",
+        "thumbnail": {
+            "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+            "height": 1536,
+            "width": 2048,
+            "ratio": 0.75
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/team/member/detail</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id of member</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d43eab55ba6c4af204ccb8f6ea9f629a -->
+<!-- START_95cd619e97f42df83a06c8e902906fba -->
+<h2>api/v2/team/delete</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/api/v2/team/delete" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"team_id":"cum"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/team/delete"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "team_id": "cum"
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/v2/team/delete</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>team_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The team id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_95cd619e97f42df83a06c8e902906fba -->
+<!-- START_14527ef13d395bdec2bb4e378ccd907e -->
+<h2>api/v2/team</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/team" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/team"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": [
+        {
+            "id": 1,
+            "name": "Team 1",
+            "detail": "Detail team 1",
+            "thumbnail": {
+                "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                "height": 1536,
+                "width": 2048,
+                "ratio": 0.75
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/team</code></p>
+<!-- END_14527ef13d395bdec2bb4e378ccd907e -->
+<!-- START_679beab4cc6b84e683fbb7acd41ac705 -->
+<h2>api/v2/team/create</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v1/team/create" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"data":"iure"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/team/create"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "data": "iure"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/team/create</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td>json</td>
+<td>required</td>
+<td>The data create team ({&quot;team&quot;:{&quot;thumbnail_url&quot;:&quot;url image&quot;,&quot;name&quot;:&quot;Team 1&quot;},&quot;users&quot;:[{&quot;id&quot;:1,&quot;is_leader&quot;:true}],&quot;program_id&quot;:1})</td>
+</tr>
+</tbody>
+</table>
+<!-- END_679beab4cc6b84e683fbb7acd41ac705 -->
+<!-- START_69007c7c06781f751ee8e1e234145441 -->
+<h2>api/v2/team/edit</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v1/team/edit" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"team_id":"laboriosam","name":"rerum","thumbnail_url":"excepturi"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/team/edit"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "team_id": "laboriosam",
+    "name": "rerum",
+    "thumbnail_url": "excepturi"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/team/edit</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>team_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The team id</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>The name of team</td>
+</tr>
+<tr>
+<td><code>thumbnail_url</code></td>
+<td>string</td>
+<td>optional</td>
+<td>The url image thumbnail team</td>
+</tr>
+</tbody>
+</table>
+<!-- END_69007c7c06781f751ee8e1e234145441 -->
+<!-- START_99d813c94819540cf37da1f2a713b581 -->
+<h2>api/v2/team/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/team/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"error"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/team/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "error"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "id": 1,
+        "name": "Team 1",
+        "program_id": 1,
+        "program_name": "Program 1",
+        "thumbnail": {
+            "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+            "height": 1536,
+            "width": 2048,
+            "ratio": 0.75
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/team/detail</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id of team</td>
+</tr>
+</tbody>
+</table>
+<!-- END_99d813c94819540cf37da1f2a713b581 -->
+<!-- START_9998b9b6c617ff1cb033fb09e9b8856c -->
+<h2>api/v2/team/edit-program</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v1/team/edit-program" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"team_id":"error","program_id":"sunt"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/team/edit-program"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "team_id": "error",
+    "program_id": "sunt"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/team/edit-program</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>team_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The team id</td>
+</tr>
+<tr>
+<td><code>program_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The program id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9998b9b6c617ff1cb033fb09e9b8856c -->
+<!-- START_5e8eef171d6caf3140fe83a36341974d -->
+<h2>api/v2/team/edit-member</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v1/team/edit-member" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"team_id":"aut","members":"modi"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/team/edit-member"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "team_id": "aut",
+    "members": "modi"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/team/edit-member</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>team_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The team id</td>
+</tr>
+<tr>
+<td><code>members</code></td>
+<td>json</td>
+<td>required</td>
+<td>The data user ( [{&quot;id&quot;:1,&quot;is_leader&quot;:true}] )</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5e8eef171d6caf3140fe83a36341974d -->
+<!-- START_6c4fd0a52bca635df81b464ca1a353e7 -->
+<h2>api/v2/team/member</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/team/member" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"minima","type":"cumque"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/team/member"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "minima",
+    "type": "cumque"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": [
+        {
+            "id": 1,
+            "name": "KhaNam\/KhaNam",
+            "name_sei": "Kha",
+            "name_mei": "Nam",
+            "is_team_member": 1,
+            "is_leader": 1,
+            "position": "member",
+            "thumbnail": {
+                "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+                "height": 1536,
+                "width": 2048,
+                "ratio": 0.75
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/team/member</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id of team</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>optional</td>
+<td>The type get member (get for show, get for edit) Ex:  edit</td>
+</tr>
+</tbody>
+</table>
+<!-- END_6c4fd0a52bca635df81b464ca1a353e7 -->
+<!-- START_8790f053023d151c9821d839a28463d9 -->
+<h2>api/v2/team/member/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/team/member/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"id":"magni"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/team/member/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id": "magni"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "id": 1,
+        "name_sei": "Kha",
+        "name_mei": "Nam",
+        "name_sei_kana": "Kha",
+        "name_mei_kana": "Nam",
+        "name": "Kha Nam \/ Kha Nam",
+        "department": "department",
+        "detail": "This is detail",
+        "thumbnail": {
+            "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+            "height": 1536,
+            "width": 2048,
+            "ratio": 0.75
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/team/member/detail</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The id of member</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8790f053023d151c9821d839a28463d9 -->
+<!-- START_4580fb9c7c2003b3422ca4fd88164e03 -->
+<h2>api/v2/team/delete</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/api/v1/team/delete" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"team_id":"maiores"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/team/delete"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "team_id": "maiores"
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/v1/team/delete</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>team_id</code></td>
+<td>numeric</td>
+<td>required</td>
+<td>The team id</td>
+</tr>
+</tbody>
+</table>
+<!-- END_4580fb9c7c2003b3422ca4fd88164e03 -->
+<h1>Upload</h1>
+<!-- START_63ba354dc0b4d321aaef310f5a997f98 -->
+<h2>api/v2/upload-image</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v2/upload-image" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"image":"et","type":"laborum"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/upload-image"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "image": "et",
+    "type": "laborum"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "url": "url image"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v2/upload-image</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image</code></td>
+<td>base64</td>
+<td>required</td>
+<td>The image</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>required</td>
+<td>The type of image Ex: question, team,...</td>
+</tr>
+</tbody>
+</table>
+<!-- END_63ba354dc0b4d321aaef310f5a997f98 -->
+<!-- START_79fd5ccda25e3eaf93d683c938e67b4c -->
+<h2>api/v2/upload-image</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v1/upload-image" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"image":"eligendi","type":"est"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/upload-image"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "image": "eligendi",
+    "type": "est"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "url": "url image"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/upload-image</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image</code></td>
+<td>base64</td>
+<td>required</td>
+<td>The image</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>required</td>
+<td>The type of image Ex: question, team,...</td>
+</tr>
+</tbody>
+</table>
+<!-- END_79fd5ccda25e3eaf93d683c938e67b4c -->
+<h1>User</h1>
+<!-- START_93329f84924f6899bebbb66a5b88189c -->
+<h2>api/v2/user</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/user"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": [
+        {
+            "id": 1,
+            "name_sei": "name sei",
+            "name_mei": "name mei",
+            "name_sei_kana": "name sei kana",
+            "name_mei_kana": "name mei kana",
+            "thumbnail": {
+                "url": "url image",
+                "height": 1365,
+                "width": 720,
+                "ratio": 2
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/user</code></p>
+<!-- END_93329f84924f6899bebbb66a5b88189c -->
+<!-- START_235e9ec5d9877b9fea1ffdd582a4bcda -->
+<h2>api/v2/user/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/user/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/user/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "name_sei": "Kha",
+        "name_mei": "Nam",
+        "name_sei_kana": "Kha kana",
+        "name_mei_kana": "Nam kana",
+        "detail": "Detail",
+        "thumbnail": {
+            "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+            "height": 1536,
+            "width": 2048,
+            "ratio": 0.75
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/user/detail</code></p>
+<!-- END_235e9ec5d9877b9fea1ffdd582a4bcda -->
+<!-- START_f63f83395533a27e39726015b2c23702 -->
+<h2>api/v2/user/edit</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v2/user/edit" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name_sei":"qui","name_mei":"iusto","name_sei_kana":"recusandae","name_mei_kana":"nostrum","detail":"quisquam","thumbnail_url":"numquam"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/user/edit"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name_sei": "qui",
+    "name_mei": "iusto",
+    "name_sei_kana": "recusandae",
+    "name_mei_kana": "nostrum",
+    "detail": "quisquam",
+    "thumbnail_url": "numquam"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v2/user/edit</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name_sei</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>name_mei</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>name_sei_kana</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>name_mei_kana</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>detail</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>thumbnail_url</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f63f83395533a27e39726015b2c23702 -->
+<!-- START_1effbe37ab8c461980b878ac31f0df98 -->
+<h2>api/v2/user/upload-avatar</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v2/user/upload-avatar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"thumbnail_url":"incidunt"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/user/upload-avatar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "thumbnail_url": "incidunt"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v2/user/upload-avatar</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thumbnail_url</code></td>
+<td>string</td>
+<td>required</td>
+<td>The image of user</td>
+</tr>
+</tbody>
+</table>
+<!-- END_1effbe37ab8c461980b878ac31f0df98 -->
+<!-- START_350a444bdf96e44c241784b3502c4521 -->
+<h2>api/v2/user/update-push-notification-token</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v2/user/update-push-notification-token" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"token":"numquam","device":"nihil"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/user/update-push-notification-token"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "token": "numquam",
+    "device": "nihil"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v2/user/update-push-notification-token</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>device</code></td>
+<td>string</td>
+<td>required</td>
+<td>Ex: android, iOS</td>
+</tr>
+</tbody>
+</table>
+<!-- END_350a444bdf96e44c241784b3502c4521 -->
+<!-- START_592244edf7b11cc6e1cde9bb4a52a059 -->
+<h2>api/v2/user/remove-push-notification-token</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v2/user/remove-push-notification-token" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"token":"voluptas"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/user/remove-push-notification-token"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "token": "voluptas"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v2/user/remove-push-notification-token</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_592244edf7b11cc6e1cde9bb4a52a059 -->
+<!-- START_3a5b3dbc04ab9e850325be385269d956 -->
+<h2>api/v2/user/send-notification</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v2/user/send-notification" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"user_id":10,"type":"nobis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/user/send-notification"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": 10,
+    "type": "nobis"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v2/user/send-notification</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>integer</td>
+<td>optional</td>
+<td>id of user receive notify</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Ex: beer</td>
+</tr>
+</tbody>
+</table>
+<!-- END_3a5b3dbc04ab9e850325be385269d956 -->
+<!-- START_d7f5c16f3f30bc08c462dbfe4b62c6b9 -->
+<h2>api/v2/user</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": [
+        {
+            "id": 1,
+            "name_sei": "name sei",
+            "name_mei": "name mei",
+            "name_sei_kana": "name sei kana",
+            "name_mei_kana": "name mei kana",
+            "thumbnail": {
+                "url": "url image",
+                "height": 1365,
+                "width": 720,
+                "ratio": 2
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/user</code></p>
+<!-- END_d7f5c16f3f30bc08c462dbfe4b62c6b9 -->
+<!-- START_eef24974558332f7a9bb08bb91086538 -->
+<h2>api/v2/user/detail</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/user/detail" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/detail"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "name_sei": "Kha",
+        "name_mei": "Nam",
+        "name_sei_kana": "Kha kana",
+        "name_mei_kana": "Nam kana",
+        "detail": "Detail",
+        "thumbnail": {
+            "url": "https:\/\/missionimg.s3-ap-northeast-1.amazonaws.com\/321.jpg",
+            "height": 1536,
+            "width": 2048,
+            "ratio": 0.75
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/user/detail</code></p>
+<!-- END_eef24974558332f7a9bb08bb91086538 -->
+<!-- START_51a5fc9c96c4121f51597000855ddb67 -->
+<h2>api/v2/user/edit</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v1/user/edit" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name_sei":"non","name_mei":"veniam","name_sei_kana":"temporibus","name_mei_kana":"ut","detail":"veniam","thumbnail_url":"occaecati"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/edit"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name_sei": "non",
+    "name_mei": "veniam",
+    "name_sei_kana": "temporibus",
+    "name_mei_kana": "ut",
+    "detail": "veniam",
+    "thumbnail_url": "occaecati"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/user/edit</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name_sei</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>name_mei</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>name_sei_kana</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>name_mei_kana</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>detail</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>thumbnail_url</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_51a5fc9c96c4121f51597000855ddb67 -->
+<!-- START_fb72250c6a514f4ece9b2253f4d9a58d -->
+<h2>api/v2/user/upload-avatar</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v1/user/upload-avatar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"thumbnail_url":"quo"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/upload-avatar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "thumbnail_url": "quo"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存に失敗しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/user/upload-avatar</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thumbnail_url</code></td>
+<td>string</td>
+<td>required</td>
+<td>The image of user</td>
+</tr>
+</tbody>
+</table>
+<!-- END_fb72250c6a514f4ece9b2253f4d9a58d -->
+<!-- START_16f7f24a3f0fec3e8c776ca405b2e6e9 -->
+<h2>api/v2/user/update-push-notification-token</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v1/user/update-push-notification-token" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"token":"voluptatum","device":"sed"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/update-push-notification-token"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "token": "voluptatum",
+    "device": "sed"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/user/update-push-notification-token</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>device</code></td>
+<td>string</td>
+<td>required</td>
+<td>Ex: android, iOS</td>
+</tr>
+</tbody>
+</table>
+<!-- END_16f7f24a3f0fec3e8c776ca405b2e6e9 -->
+<!-- START_2c06120edeafb3d69b963115480f8611 -->
+<h2>api/v2/user/remove-push-notification-token</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/v1/user/remove-push-notification-token" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"token":"exercitationem"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/remove-push-notification-token"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "token": "exercitationem"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": {
+        "status": false
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/v1/user/remove-push-notification-token</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>token</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_2c06120edeafb3d69b963115480f8611 -->
+<!-- START_a84e8f40e16463f891d8ce270ba2b4ed -->
+<h2>api/v2/user/send-notification</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v1/user/send-notification" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"user_id":11,"type":"amet"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/send-notification"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": 11,
+    "type": "amet"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 200,
+        "message": "保存しました"
+    },
+    "response": {
+        "status": true
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/user/send-notification</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>integer</td>
+<td>optional</td>
+<td>id of user receive notify</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Ex: beer</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a84e8f40e16463f891d8ce270ba2b4ed -->
+<h1>general</h1>
+<!-- START_093ec9a3d0ef339a48fc652778b0d280 -->
+<h2>api/v2/user/get-push-token</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v2/user/get-push-token" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/user/get-push-token"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v2/user/get-push-token</code></p>
+<!-- END_093ec9a3d0ef339a48fc652778b0d280 -->
+<!-- START_6fe4e22680e0cfbe95a384ea1d21f918 -->
+<h2>api/v2/user/send-notification-daily</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v2/user/send-notification-daily" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/user/send-notification-daily"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v2/user/send-notification-daily</code></p>
+<!-- END_6fe4e22680e0cfbe95a384ea1d21f918 -->
+<!-- START_9af809b0285669724fe8d3c790c6ae86 -->
+<h2>api/v1/user/get-push-token</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/v1/user/get-push-token" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/get-push-token"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "meta": {
+        "status": 500,
+        "message": "内部サーバーエラー"
+    },
+    "response": []
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/user/get-push-token</code></p>
+<!-- END_9af809b0285669724fe8d3c790c6ae86 -->
+<!-- START_5e13d7849164ac34b0f428c52a184a0d -->
+<h2>api/v1/user/send-notification-daily</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/v1/user/send-notification-daily" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/user/send-notification-daily"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/user/send-notification-daily</code></p>
+<!-- END_5e13d7849164ac34b0f428c52a184a0d -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>
